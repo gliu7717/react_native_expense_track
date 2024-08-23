@@ -1,7 +1,7 @@
-
 import { useContext, useLayoutEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 
+import ExpenseForm from '../components/ManageExpense/ExpenseForm';
 import Button from '../components/UI/Button';
 import IconButton from '../components/UI/IconButton';
 import { GlobalStyles } from '../constants/styles';
@@ -35,14 +35,14 @@ function ManageExpense({ route, navigation }) {
         {
           description: 'Test!!!!',
           amount: 29.99,
-          date: new Date('2024-08-20'),
+          date: new Date('2022-05-20'),
         }
       );
     } else {
       expensesCtx.addExpense({
         description: 'Test',
         amount: 19.99,
-        date: new Date('2024-08-19'),
+        date: new Date('2022-05-19'),
       });
     }
     navigation.goBack();
@@ -50,6 +50,7 @@ function ManageExpense({ route, navigation }) {
 
   return (
     <View style={styles.container}>
+      <ExpenseForm />
       <View style={styles.buttons}>
         <Button style={styles.button} mode="flat" onPress={cancelHandler}>
           Cancel
